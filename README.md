@@ -72,7 +72,7 @@ git clone https://github.com/czy1024/tencent-spring-boot-starter.git
     <dependency>
         <groupId>com.github.czy1024</groupId>
         <artifactId>tencent-spring-boot-starter-tencent</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.4-RELEASE</version>
     </dependency>
 ```
 在配置文件application.properties加入可选配置
@@ -112,8 +112,6 @@ mq:
     exchange: exchange.order
     queue: queue.order
     routing: queue.order
-
-
 
 ```
 

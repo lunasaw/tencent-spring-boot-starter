@@ -6,10 +6,10 @@
 
     <groupId>com.github.czy1024</groupId>
     <artifactId>tencent-spring-boot-starter</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4-RELEASE</version>
     <name>tencent-spring-boot-starter</name>
     <description>Tencent API Toolkit</description>
-    <url>https://github.com/czy1024/tencent-spring-boot-start</url>
+    <url>https://czy1024.github.io/tencent-spring-boot-starter</url>
     <properties>
         <maven.test.skip>true</maven.test.skip>
         <maven.compiler.source>8</maven.compiler.source>
@@ -25,6 +25,7 @@
             <name>luna</name>
             <id>luna</id>
             <email>iszychen@gmail.com</email>
+            <url>https://github.com/czy1024</url>
         </developer>
     </developers>
     <licenses>
@@ -47,9 +48,9 @@
     </distributionManagement>
 
     <scm>
-        <url>https://github.com/czy1024/baidu-spring-boot-starter</url>
-        <connection>scm:git:https://github.com/czy1024/baidu-spring-boot-starter.git</connection>
-        <developerConnection>scm:git:https://github.com/czy1024/baidu-spring-boot-starter</developerConnection>
+        <url>https://github.com/czy1024/tencent-spring-boot-starter</url>
+        <connection>scm:git:https://github.com/czy1024/tencent-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:https://github.com/czy1024/tencent-spring-boot-starter</developerConnection>
     </scm>
 
     <dependencyManagement>
@@ -109,7 +110,7 @@
         <dependency>
             <groupId>com.github.czy1024</groupId>
             <artifactId>luna-common</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </dependency>
     </dependencies>
 
