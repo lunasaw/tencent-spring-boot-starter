@@ -1,0 +1,78 @@
+{
+  "groups": [
+    {
+      "name": "luna.ten",
+      "type": "com.luna.tencent.properties.TencentApiConfigProperties",
+      "sourceType": "com.luna.tencent.properties.TencentApiConfigProperties"
+    },
+    {
+      "name": "luna.wechat",
+      "type": "com.luna.tencent.properties.TencentPayConfigProperties",
+      "sourceType": "com.luna.tencent.properties.TencentPayConfigProperties"
+    },
+    {
+      "name": "mq.pay",
+      "type": "com.luna.tencent.properties.TencentPayMqConfigProperties",
+      "sourceType": "com.luna.tencent.properties.TencentPayMqConfigProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "luna.ten.secret-id",
+      "type": "java.lang.String",
+      "sourceType": "com.luna.tencent.properties.TencentApiConfigProperties"
+    },
+    {
+      "name": "luna.ten.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.luna.tencent.properties.TencentApiConfigProperties"
+    },
+    {
+      "name": "luna.ten.sky-eye-secret-id",
+      "type": "java.lang.String",
+      "sourceType": "com.luna.tencent.properties.TencentApiConfigProperties"
+    },
+    {
+      "name": "luna.ten.sky-eye-secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.luna.tencent.properties.TencentApiConfigProperties"
+    },
+    {
+      "name": "luna.wechat.app-id",
+      "type": "java.lang.String",
+      "sourceType": "com.luna.tencent.properties.TencentPayConfigProperties"
+    },
+    {
+      "name": "luna.wechat.notify-url",
+      "type": "java.lang.String",
+      "sourceType": "com.luna.tencent.properties.TencentPayConfigProperties"
+    },
+    {
+      "name": "luna.wechat.partner",
+      "type": "java.lang.String",
+      "sourceType": "com.luna.tencent.properties.TencentPayConfigProperties"
+    },
+    {
+      "name": "luna.wechat.partner-key",
+      "type": "java.lang.String",
+      "description": "密钥",
+      "sourceType": "com.luna.tencent.properties.TencentPayConfigProperties"
+    },
+    {
+      "name": "mq.pay.exchange",
+      "type": "java.lang.String",
+      "sourceType": "com.luna.tencent.properties.TencentPayMqConfigProperties"
+    },
+    {
+      "name": "mq.pay.queue",
+      "type": "java.lang.String",
+      "sourceType": "com.luna.tencent.properties.TencentPayMqConfigProperties"
+    },
+    {
+      "name": "mq.pay.routing",
+      "type": "java.lang.String",
+      "sourceType": "com.luna.tencent.properties.TencentPayMqConfigProperties"
+    }
+  ],
+  "hints": []
+}
