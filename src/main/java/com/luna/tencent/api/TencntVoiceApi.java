@@ -8,7 +8,7 @@ import com.luna.common.file.FileTools;
 import com.luna.common.net.HttpUtils;
 import com.luna.common.net.HttpUtilsConstant;
 import com.luna.common.text.Base64Util;
-import com.luna.common.text.MapUtils;
+import com.luna.common.text.ChainTreeMap;
 import com.luna.tencent.dto.voice.VoiceFastIdentifyDTO;
 import com.luna.tencent.dto.voice.VoiceOneMinutesDTO;
 import com.luna.tencent.response.voice.FlashRecognitionResponse;
@@ -82,24 +82,24 @@ public class TencntVoiceApi {
         Integer dataLen, Integer hotwordId, Integer filterDirty, Integer filterModal, Integer convertNumMode,
         Integer filterPunc) {
 
-        HashMap<String, Object> map = Maps.newHashMap();
+        ChainTreeMap<String, Object> map = ChainTreeMap.newChainMap();
 
-        MapUtils.putIfNull(map, "EngineModelType", engineModelType);
-        MapUtils.putIfNull(map, "EngineModelType", engineModelType);
-        MapUtils.putIfNull(map, "ChannelNum", channelNum);
-        MapUtils.putIfNull(map, "ResTextFormat", resTextFormat);
-        MapUtils.putIfNull(map, "SourceType", sourceType);
-        MapUtils.putIfNull(map, "SpeakerDiarization", speakerDiarization);
-        MapUtils.putIfNull(map, "SpeakerNumber", speakerNumber);
-        MapUtils.putIfNull(map, "CallbackUrl", callbackUrl);
-        MapUtils.putIfNull(map, "Url", url);
-        MapUtils.putIfNull(map, "Data", data);
-        MapUtils.putIfNull(map, "DataLen", dataLen);
-        MapUtils.putIfNull(map, "HotwordId", hotwordId);
-        MapUtils.putIfNull(map, "FilterDirty", filterDirty);
-        MapUtils.putIfNull(map, "FilterModal", filterModal);
-        MapUtils.putIfNull(map, "ConvertNumMode", convertNumMode);
-        MapUtils.putIfNull(map, "FilterPunc", filterPunc);
+        map.putIfNotEmpty("EngineModelType", engineModelType)
+            .putIfNotEmpty("EngineModelType", engineModelType)
+            .putIfNotEmpty("ChannelNum", channelNum)
+            .putIfNotEmpty("ResTextFormat", resTextFormat)
+            .putIfNotEmpty("SourceType", sourceType)
+            .putIfNotEmpty("SpeakerDiarization", speakerDiarization)
+            .putIfNotEmpty("SpeakerNumber", speakerNumber)
+            .putIfNotEmpty("CallbackUrl", callbackUrl)
+            .putIfNotEmpty("Url", url)
+            .putIfNotEmpty("Data", data)
+            .putIfNotEmpty("DataLen", dataLen)
+            .putIfNotEmpty("HotwordId", hotwordId)
+            .putIfNotEmpty("FilterDirty", filterDirty)
+            .putIfNotEmpty("FilterModal", filterModal)
+            .putIfNotEmpty("ConvertNumMode", convertNumMode)
+            .putIfNotEmpty("FilterPunc", filterPunc);
 
         String body = JSONArray.toJSONString(map);
         Map postHeader =
@@ -223,18 +223,19 @@ public class TencntVoiceApi {
     public static FlashRecognitionResponse voiceFastIdentify(String appId, String secretid, String key,
         VoiceFastIdentifyDTO voiceFastIdentifyDTO) {
 
-        TreeMap<String, Object> map = Maps.newTreeMap();
-        MapUtils.putIfNull(map, "secretid", secretid);
-        MapUtils.putIfNull(map, "engine_type", voiceFastIdentifyDTO.getEngineType());
-        MapUtils.putIfNull(map, "voice_format", voiceFastIdentifyDTO.getVoiceFormat());
-        MapUtils.putIfNull(map, "timestamp", voiceFastIdentifyDTO.getTimestamp());
-        MapUtils.putIfNull(map, "speaker_diarization", voiceFastIdentifyDTO.getSpeakerDiarization());
-        MapUtils.putIfNull(map, "filter_dirty", voiceFastIdentifyDTO.getFilterDirty());
-        MapUtils.putIfNull(map, "filter_modal", voiceFastIdentifyDTO.getFilterModal());
-        MapUtils.putIfNull(map, "filter_punc", voiceFastIdentifyDTO.getFilterPunc());
-        MapUtils.putIfNull(map, "convert_num_mode", voiceFastIdentifyDTO.getConvertNumMode());
-        MapUtils.putIfNull(map, "word_info", voiceFastIdentifyDTO.getWordInfo());
-        MapUtils.putIfNull(map, "first_channel_only", voiceFastIdentifyDTO.getFirstChannelOnly());
+        ChainTreeMap<String, Object> map = ChainTreeMap.newChainMap();
+
+        map.putIfNotEmpty("secretid", secretid)
+            .putIfNotEmpty("engine_type", voiceFastIdentifyDTO.getEngineType())
+            .putIfNotEmpty("voice_format", voiceFastIdentifyDTO.getVoiceFormat())
+            .putIfNotEmpty("timestamp", voiceFastIdentifyDTO.getTimestamp())
+            .putIfNotEmpty("speaker_diarization", voiceFastIdentifyDTO.getSpeakerDiarization())
+            .putIfNotEmpty("filter_dirty", voiceFastIdentifyDTO.getFilterDirty())
+            .putIfNotEmpty("filter_modal", voiceFastIdentifyDTO.getFilterModal())
+            .putIfNotEmpty("filter_punc", voiceFastIdentifyDTO.getFilterPunc())
+            .putIfNotEmpty("convert_num_mode", voiceFastIdentifyDTO.getConvertNumMode())
+            .putIfNotEmpty("word_info", voiceFastIdentifyDTO.getWordInfo())
+            .putIfNotEmpty("first_channel_only", voiceFastIdentifyDTO.getFirstChannelOnly());
 
         String url =
             HttpUtils.buildUrlObject("https://" + TencentConstant.VOICE_FAST_IDENTIFY, "/asr/flash/v1/" + appId, map);
@@ -273,27 +274,27 @@ public class TencntVoiceApi {
      */
     public static VoiceOneMinutesResponse voiceIdentifyOneMinutes(String secretid, String key, Integer projectId,
         VoiceOneMinutesDTO voiceOneMinutesDTO) {
-        HashMap<String, Object> map = Maps.newHashMap();
 
-        MapUtils.putIfNull(map, "ProjectId", projectId);
+        ChainTreeMap<String, Object> map = ChainTreeMap.newChainMap();
         // 子服务类型。2： 一句话识别。
-        MapUtils.putIfNull(map, "SubServiceType", 2);
-        MapUtils.putIfNull(map, "EngSerViceType", voiceOneMinutesDTO.getEngSerViceType());
-        MapUtils.putIfNull(map, "SourceType", voiceOneMinutesDTO.getSourceType());
-        MapUtils.putIfNull(map, "VoiceFormat", voiceOneMinutesDTO.getVoiceFormat());
-        MapUtils.putIfNull(map, "UsrAudioKey", voiceOneMinutesDTO.getUsrAudioKey());
-        MapUtils.putIfNull(map, "Url", voiceOneMinutesDTO.getUrl());
-        MapUtils.putIfNull(map, "Data", voiceOneMinutesDTO.getData());
-        MapUtils.putIfNull(map, "DataLen", voiceOneMinutesDTO.getDataLen());
-        MapUtils.putIfNull(map, "HotwordId", voiceOneMinutesDTO.getHotwordId());
-        MapUtils.putIfNull(map, "FilterDirty", voiceOneMinutesDTO.getFilterDirty());
-        MapUtils.putIfNull(map, "FilterModal", voiceOneMinutesDTO.getFilterModal());
-        MapUtils.putIfNull(map, "FilterPunc", voiceOneMinutesDTO.getFilterPunc());
-        MapUtils.putIfNull(map, "ConvertNumMode", voiceOneMinutesDTO.getConvertNumMode());
-        MapUtils.putIfNull(map, "WordInfo", voiceOneMinutesDTO.getWordInfo());
+        map.putIfNotEmpty("ProjectId", projectId)
+            .putIfNotEmpty("SubServiceType", 2)
+            .putIfNotEmpty("EngSerViceType", voiceOneMinutesDTO.getEngSerViceType())
+            .putIfNotEmpty("SourceType", voiceOneMinutesDTO.getSourceType())
+            .putIfNotEmpty("VoiceFormat", voiceOneMinutesDTO.getVoiceFormat())
+            .putIfNotEmpty("UsrAudioKey", voiceOneMinutesDTO.getUsrAudioKey())
+            .putIfNotEmpty("Url", voiceOneMinutesDTO.getUrl())
+            .putIfNotEmpty("Data", voiceOneMinutesDTO.getData())
+            .putIfNotEmpty("DataLen", voiceOneMinutesDTO.getDataLen())
+            .putIfNotEmpty("HotwordId", voiceOneMinutesDTO.getHotwordId())
+            .putIfNotEmpty("FilterDirty", voiceOneMinutesDTO.getFilterDirty())
+            .putIfNotEmpty("FilterModal", voiceOneMinutesDTO.getFilterModal())
+            .putIfNotEmpty("FilterPunc", voiceOneMinutesDTO.getFilterPunc())
+            .putIfNotEmpty("ConvertNumMode", voiceOneMinutesDTO.getConvertNumMode())
+            .putIfNotEmpty("WordInfo", voiceOneMinutesDTO.getWordInfo());
 
         String body = JSONArray.toJSONString(map);
-        Map postHeader =
+        Map<String, String> postHeader =
             TencentCloudAPITC3.getPostHeader(secretid, key, "asr",
                 TencentConstant.VOICE_IDENTIFY, "", "SentenceRecognition", "2019-06-14", body);
         HttpResponse httpResponse =
